@@ -16,5 +16,5 @@ setup(
     author='Daniel Suveges',
     author_email='dsuveges@ebi.ac.uk',
     description='Package that parses \'opentargets.conn.IterableResult\' objects.',
-    install_requires=['pandas', 'pytest-cov', 'opentargets']
+    install_requires=['pandas', 'pytest-cov', 'opentargets', 'coverage', 'codacy-coverage']
 )
