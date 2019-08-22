@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.6"
+branches:
+  only:
+  - master
+install:
+  - python setup.py -q install
+script:
+  - coverage run -m pytest
+  - coverage xml
+  - python-codacy-coverage -r coverage.xml
