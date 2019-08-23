@@ -15,37 +15,23 @@ summaries of the overlall association scores in a returned response object.
 
 ## Installation using pip
 
-## Installation using conda
-
-1. Clone repository:
+1. Clone repository from github:
     ```bash
     git clone https://github.com/DSuveges/OTAR_response_parser.git
     cd OTAR_response_parser
     ```
-    
-2. Create conda environment:
 
-    ```bash
-    conda create -n OTP python=3.6
-    ```
+2. Setting up environment and install required packages:
     
-3. Activate environment:
-
     ```bash
-    conda activate OTP
+    python3 -m venv OTP
+    source OTP/bin/activate
+    pip install -r requirements.txt  
     ```
-4. Install the parser module:
+3. Installing parser module:
 
     ```bash
     pip install .
-    ```
-5. Start the web application:
-
-    ```bash
-    gunicorn -b localhost:8080 app:app \
-        --log-level=debug \
-        --access-logfile=logs/access.log \
-        --error-logfile=logs/error.log
     ```
 
 ## Installation using docker
