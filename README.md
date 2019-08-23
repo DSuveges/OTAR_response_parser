@@ -17,16 +17,47 @@ summaries of the overlall association scores in a returned response object.
 
 ## Installation using conda
 
+1. Clone repository:
+    ```bash
+    git clone https://github.com/DSuveges/OTAR_response_parser.git
+    cd OTAR_response_parser
+    ```
+    
+2. Create conda environment:
+
+    ```bash
+    conda env create -f environment.yml
+    ```
+    
+3. Activate environment:
+
+    ```bash
+    conda activate template_serv
+    ```
+4. Install template service packates:
+
+    ```bash
+    pip install .
+    ```
+5. Start the web application:
+
+    ```bash
+    gunicorn -b localhost:8080 app:app \
+        --log-level=debug \
+        --access-logfile=logs/access.log \
+        --error-logfile=logs/error.log
+    ```
+
 ## Installation using docker
 
 ## Usage
 
-###The command line interface:
+### The command line interface
 
 **Display command line help message:**
 
 ```bash
- OTAR_result_parser -h
+OTAR_result_parser -h
 ``` 
 
 Expected output:
