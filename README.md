@@ -21,20 +21,21 @@ summaries of the overlall association scores in a returned response object.
     cd OTAR_response_parser
     ```
 
-2. Setting up environment and install required packages:
+2. Setting up environment:
     
     ```bash
     python3 -m venv OTP
     source OTP/bin/activate
-    pip install -r requirements.txt  
     ```
-3. Installing parser module:
+3. Installing parser module and all its dependencies:
 
     ```bash
     pip install .
     ```
 
 ## Installation using docker
+
+To be added later
 
 ## Usage
 
