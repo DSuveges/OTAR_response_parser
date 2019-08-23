@@ -26,15 +26,15 @@ summaries of the overlall association scores in a returned response object.
 2. Create conda environment:
 
     ```bash
-    conda env create -f environment.yml
+    conda create -n OTP python=3.6
     ```
     
 3. Activate environment:
 
     ```bash
-    conda activate template_serv
+    conda activate OTP
     ```
-4. Install template service packates:
+4. Install the parser module:
 
     ```bash
     pip install .
