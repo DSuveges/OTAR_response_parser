@@ -79,7 +79,7 @@ Expected output:
 
 ```python
 from opentargets import OpenTargetsClient
-from OTAR_result_parser import OTAR_result_parser
+from OTAR_result_parser.OTAR_result_parser import OTAR_result_parser
 
 # Get association for a gene for example:
 geneID = 'ENSG00000197386'
@@ -90,27 +90,33 @@ otar_results = client.filter_associations()
 x = otar_results.filter(target=geneID)
 
 # Initialize parser object:
-OT_parser = OTAR_result_parser(x, verbose=verbose)
+OT_parser = OTAR_result_parser(x, verbose=True)
 ```
 
 **Get the average of the overlall association scores:**
 
 ```python
-OT_parser.OT_parser.get_association_score_mean()
+OT_parser.get_association_score_mean()
 ```
 
 **Get the lowest overlall association score:**
 
 ```python
-OT_parser.OT_parser.get_association_score_min()
+OT_parser.get_association_score_min()
 ```
 **Get the highest overlall association score:**
 
 ```python
-OT_parser.OT_parser.get_association_score_max()
+OT_parser.get_association_score_max()
 ```
 **Get the standard deviation of the overlall association scores:**
 
 ```python
-OT_parser.OT_parser.get_association_score_std()
+OT_parser.get_association_score_std()
+```
+
+**Get the number of associations in the returned dataset:**
+
+```python
+len(OT_parser)
 ```
