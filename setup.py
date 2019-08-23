@@ -9,7 +9,7 @@ setup(
     include_package_data=True,
     packages=['OTAR_result_parser'],
     entry_points={
-        "console_scripts": ['OTAR_result_parser = OTAR_result_parser:main']
+        "console_scripts": ['OTAR_result_parser = OTAR_result_parser.OTAR_result_parser:main']
     },
     url='https://github.com/dsuveges/OTAR_result_parser',
     license='',

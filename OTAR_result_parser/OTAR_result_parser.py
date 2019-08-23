@@ -40,7 +40,7 @@ class OTAR_result_parser():
         return(len(self.OT_result_df))
 
 # The command line wrapper for the result parser package:
-def __main__():
+def main():
     parser = ArgumentParser(description="A small tool to retrieve association information from Opentargets based on a provided target or disease.")
 
     parser.add_argument('-t', '--target', dest='target', help='Target name eg. ENSG00000197386.', required=False, type=str)
@@ -56,17 +56,17 @@ def __main__():
 
     # The two arguments are mutually exclusive:
     if args.target and args.disease:
-        parser.error('Target or disease has to be specified with the -t or -d switches respectively.')
+        parser.error('Only disease or target should be specified, not both.')
 
     # If the input looks good, let's submit the query:
     client = OpenTargetsClient()
     otar_results = client.filter_associations()
 
     if args.target:
-        if verbose: print('[Info] The following target is queried from Opentarget: {}'.format(args.target))
+        if verbose: print('[Info] The following target is queried from Opentargets: {}'.format(args.target))
         x = otar_results.filter(target=args.target)
     elif args.disease:
-        if verbose: print('[Info] The following disease is queried from Opentarget: {}'.format(args.disease))
+        if verbose: print('[Info] The following disease is queried from Opentargets: {}'.format(args.disease))
         x = otar_results.filter(disease=args.disease)
 
     # Parse the result:
@@ -85,4 +85,4 @@ def __main__():
 
 
 if __name__ == '__main__':
-    __main__()
+    main()
