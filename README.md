@@ -62,6 +62,12 @@ OTAR_result_parser -t ENSG00000197386
 Expected output:
 
 ```
+Assoc #0 - Target ID: ENSG00000197386, disease ID: EFO_0000618, association score: 1.0
+Assoc #1 - Target ID: ENSG00000197386, disease ID: Orphanet_71859, association score: 1.0
+...
+Assoc #791 - Target ID: ENSG00000197386, disease ID: EFO_0003758, association score: 0.004
+Assoc #792 - Target ID: ENSG00000197386, disease ID: EFO_0003756, association score: 0.004
+
 [Info] The maximum of the association_score.overall values: 1.0
 [Info] The minimum of the association_score.overall values: 0.004
 [Info] The average of the association_score.overall values: 0.22693400415219542
@@ -77,6 +83,12 @@ OTAR_result_parser -d Orphanet_399
 Expected output:
 
 ```
+Assoc #0 - Target ID: ENSG00000165646, disease ID: Orphanet_399, association score: 1.0
+Assoc #1 - Target ID: ENSG00000198785, disease ID: Orphanet_399, association score: 1.0
+...
+Assoc #798 - Target ID: ENSG00000101966, disease ID: Orphanet_399, association score: 0.004
+Assoc #799 - Target ID: ENSG00000006128, disease ID: Orphanet_399, association score: 0.004
+
 [Info] The maximum of the association_score.overall values: 1.0
 [Info] The minimum of the association_score.overall values: 0.004
 [Info] The average of the association_score.overall values: 0.0827557783951425

@@ -35,6 +35,10 @@ class OTAR_result_parser():
     def get_association_score_std(self):
         return self.OT_result_df['association_score.overall'].std()
 
+    # Get a dataframe with target disease pairs with the corresponding association score:
+    def get_target_disease_pairs(self):
+        return self.OT_result_df[['target.id','disease.id','association_score.overall']]
+
     # Add other functionality:
     def __len__(self):
         return(len(self.OT_result_df))
@@ -79,8 +83,15 @@ def main():
         print('[Error] The result set is empty. Can\'t calculate stats. Exiting.')
         quit()
 
-    # Generate the output:
-    print('[Info] The maximum of the association_score.overall values: {}'.format(OT_parser.get_association_score_max()))
+    # Print gene-trait pairs:
+    target_disease_pairs = OT_parser.get_target_disease_pairs()
+    target_disease_pairs.apply(lambda row: print(
+        'Assoc #{} - Target ID: {}, disease ID: {}, association score: {}'.format(row.name, row['target.id'],
+                                                              row['disease.id'],row['association_score.overall'])),
+         axis=1)
+
+    # Print statistics:
+    print('\n[Info] The maximum of the association_score.overall values: {}'.format(OT_parser.get_association_score_max()))
     print('[Info] The minimum of the association_score.overall values: {}'.format(OT_parser.get_association_score_min()))
     print('[Info] The average of the association_score.overall values: {}'.format(OT_parser.get_association_score_mean()))
     print('[Info] The standard error of the association_score.overall values: {}'.format(OT_parser.get_association_score_std()))
