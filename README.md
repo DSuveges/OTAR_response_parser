@@ -5,39 +5,28 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/ab0fc19c6def4bffb44ce6d89f75df85)](https://www.codacy.com/app/DSuveges/OTAR_response_parser?utm_source=github.com&utm_medium=referral&utm_content=DSuveges/OTAR_response_parser&utm_campaign=Badge_Coverage)
 
 This module is an extension of the [Python client for the Open Targets REST API](https://github.com/opentargets/opentargets-py) 
-that parses the result object. The module has a simple command line interfact to demonstrate its functionality by displaying 
-summaries of the overlall association scores in a returned response object.
+that parses the result object. The module has a simple command line interface to demonstrate its functionality by displaying 
+summaries of the overall association scores extracted from the returned response object.
 
 #### Requirements
 
 * Python 3.6+
-* Opentargets 3.1.16 (see installation instruction [here](https://opentargets.readthedocs.io/en/stable/))
+* Opentargets REST API wrapper v3.1.16 (see installation instruction [here](https://opentargets.readthedocs.io/en/stable/))
 
 ## Installation using pip
 
-1. Clone repository from github:
-    ```bash
-    git clone https://github.com/DSuveges/OTAR_response_parser.git
-    cd OTAR_response_parser
-    ```
+Once the desired Python virtual environment is activated, the parser and its dependencies can be directly installed from 
+github using pip:
 
-2. Setting up environment:
-    
-    ```bash
-    python3 -m venv OTP
-    source OTP/bin/activate
-    ```
-3. Installing parser module and all its dependencies:
-
-    ```bash
-    pip install .
-    ```
-
-## Installation using docker
-
-To be added later
+```bash
+pip install git+https://github.com/DSuveges/OTAR_response_parser
+```
 
 ## Usage
+
+This is a Python module that takes `opentargets.conn.IterableResult` object as an input, but for demonstrative 
+purposes, it is shipped with a simple command line interface as well. If the module is installed via `pip`, this 
+command line tool gets also installed and added into the path. 
 
 ### The command line interface
 
@@ -51,15 +40,16 @@ Expected output:
 ```
 usage: OTAR_result_parser [-h] [-t TARGET] [-d DISEASE] [-v]
 
-A small tool to retrieve association information from Opentargets based on a
-provided target or disease.
+A small command line tool to demonstrate the capabilities of the Opentargets
+parser module. At this stage it shows statistics of the association scores in
+a result set of a target or disease specific query.
 
 optional arguments:
   -h, --help            show this help message and exit
   -t TARGET, --target TARGET
-                        Target name eg. ENSG00000197386.
+                        Specify target ID. eg. ENSG00000197386.
   -d DISEASE, --disease DISEASE
-                        Name of schema eg. association. eg. Orphanet_399
+                        Specify disease ID. eg. Orphanet_399
   -v, --verbose         Prints out extra information
 ```
 
@@ -78,7 +68,7 @@ Expected output:
 [Info] The standard error of the association_score.overall values: 0.17547453440391447
 ```
 
-**Parsing result object for a target query:**
+**Parsing result object for a disease query:**
 
 ```bash
 OTAR_result_parser -d Orphanet_399
@@ -111,23 +101,23 @@ x = otar_results.filter(target=geneID)
 OT_parser = OTAR_result_parser(x, verbose=True)
 ```
 
-**Get the average of the overlall association scores:**
+**Get the average of the overall association scores:**
 
 ```python
 OT_parser.get_association_score_mean()
 ```
 
-**Get the lowest overlall association score:**
+**Get the lowest overall association score:**
 
 ```python
 OT_parser.get_association_score_min()
 ```
-**Get the highest overlall association score:**
+**Get the highest overall association score:**
 
 ```python
 OT_parser.get_association_score_max()
 ```
-**Get the standard deviation of the overlall association scores:**
+**Get the standard deviation of the overall association scores:**
 
 ```python
 OT_parser.get_association_score_std()

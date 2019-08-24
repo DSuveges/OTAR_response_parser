@@ -27,7 +27,7 @@ class OTAR_result_parser():
     def get_association_score_min(self):
         return self.OT_result_df['association_score.overall'].min()
 
-    # Get the highest association scores:
+    # Get the highest association score:
     def get_association_score_max(self):
         return self.OT_result_df['association_score.overall'].max()
 
@@ -41,10 +41,12 @@ class OTAR_result_parser():
 
 # The command line wrapper for the result parser package:
 def main():
-    parser = ArgumentParser(description="A small tool to retrieve association information from Opentargets based on a provided target or disease.")
+    parser = ArgumentParser(description=("A small command line tool to demonstrate the capabilities of the Opentargets parser module. "
+                                         "At this stage, it shows statistics of the association scores in a result set of a target "
+                                         "or disease specific query."))
 
-    parser.add_argument('-t', '--target', dest='target', help='Target name eg. ENSG00000197386.', required=False, type=str)
-    parser.add_argument('-d', '--disease', dest='disease', help='Name of schema eg. association. eg. Orphanet_399', required = False,  type=str)
+    parser.add_argument('-t', '--target', dest='target', help='Specify target ID. eg. ENSG00000197386.', required=False, type=str)
+    parser.add_argument('-d', '--disease', dest='disease', help='Specify disease ID. eg. Orphanet_399', required = False,  type=str)
     parser.add_argument('-v', '--verbose', dest='verbose', help='Prints out extra information', required=False, action='store_true')
 
     args = parser.parse_args()
@@ -74,7 +76,7 @@ def main():
 
     # If the result set is empty, we can't get stats:
     if not len(OT_parser):
-        print('[Error] The result set is empyt. Can\'t calculate stats. Exiting.')
+        print('[Error] The result set is empty. Can\'t calculate stats. Exiting.')
         quit()
 
     # Generate the output:
