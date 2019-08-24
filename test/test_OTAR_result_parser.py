@@ -3,7 +3,7 @@ import pandas as pd
 from OTAR_result_parser.OTAR_result_parser import OTAR_result_parser
 
 
-# Building a test object:
+# Building a test object mocking the OT response object:
 class test_OT_response_object(object):
     test_dataframe = pd.DataFrame({'association_score.overall' : [1,2,3,4,5]})
 
