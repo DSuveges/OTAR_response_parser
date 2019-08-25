@@ -12,10 +12,11 @@ summaries of the overall association scores extracted from the returned response
 
 * Python 3.6+
 * Opentargets REST API wrapper v3.1.16 (see installation instruction [here](https://opentargets.readthedocs.io/en/stable/))
+* Pandas
 
 ## Installation using pip
 
-Once the desired Python virtual environment is activated, the parser and its dependencies can be directly installed from 
+Once the desired Python 3 virtual environment is activated, the parser and its dependencies can be directly installed from 
 github using pip:
 
 ```bash
@@ -26,7 +27,7 @@ pip install git+https://github.com/DSuveges/OTAR_response_parser
 
 This is a Python module that takes `opentargets.conn.IterableResult` object as an input, but for demonstrative 
 purposes, it is shipped with a simple command line interface as well. If the module is installed via `pip`, this 
-command line tool gets also installed and added into the path. 
+command line tool gets also installed and added to the path. 
 
 ### The command line interface
 
@@ -62,16 +63,18 @@ OTAR_result_parser -t ENSG00000197386
 Expected output:
 
 ```
+[Info] ENSG00000197386 as target ID returned the following associations:
 Assoc #0 - Target ID: ENSG00000197386, disease ID: EFO_0000618, association score: 1.0
 Assoc #1 - Target ID: ENSG00000197386, disease ID: Orphanet_71859, association score: 1.0
 ...
 Assoc #791 - Target ID: ENSG00000197386, disease ID: EFO_0003758, association score: 0.004
 Assoc #792 - Target ID: ENSG00000197386, disease ID: EFO_0003756, association score: 0.004
 
-[Info] The maximum of the association_score.overall values: 1.0
-[Info] The minimum of the association_score.overall values: 0.004
-[Info] The average of the association_score.overall values: 0.22693400415219542
-[Info] The standard error of the association_score.overall values: 0.17547453440391447
+[Info] Association score stats for the target based query for ENSG00000197386:
+    The maximum of the association_score.overall values: 1.0
+    The minimum of the association_score.overall values: 0.004
+    The average of the association_score.overall values: 0.2269340041521952
+    The standard error of the association_score.overall values: 0.1754745344039146
 ```
 
 **Parsing result object for a disease query:**
@@ -83,17 +86,23 @@ OTAR_result_parser -d Orphanet_399
 Expected output:
 
 ```
+[Info] Orphanet_399 as disease ID returned the following associations:
 Assoc #0 - Target ID: ENSG00000165646, disease ID: Orphanet_399, association score: 1.0
 Assoc #1 - Target ID: ENSG00000198785, disease ID: Orphanet_399, association score: 1.0
 ...
 Assoc #798 - Target ID: ENSG00000101966, disease ID: Orphanet_399, association score: 0.004
 Assoc #799 - Target ID: ENSG00000006128, disease ID: Orphanet_399, association score: 0.004
 
-[Info] The maximum of the association_score.overall values: 1.0
-[Info] The minimum of the association_score.overall values: 0.004
-[Info] The average of the association_score.overall values: 0.0827557783951425
-[Info] The standard error of the association_score.overall values: 0.15081103935000872
+[Info] Association score stats for the disease based query for Orphanet_399:
+    The maximum of the association_score.overall values: 1.0
+    The minimum of the association_score.overall values: 0.004
+    The average of the association_score.overall values: 0.08275577839514175
+    The standard error of the association_score.overall values: 0.1508110393500087
 ```
+
+If both target and disease query is requested at the same time, at first the disease/trait table is printed out 
+for the target and disease based search; then the association score statistics for the target and disease based
+query.
 
 ### Application interface
 
