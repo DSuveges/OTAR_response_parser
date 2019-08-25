@@ -132,7 +132,7 @@ def main():
             analysisResult[queryType]['target-disease-pairs'].apply(lambda row: print(
                 'Assoc #{} - Target ID: {}, disease ID: {}, association score: {}'.format(row.name, row['target.id'],
                                                                       row['disease.id'],row['association_score.overall'])),
-                 axis=1)           
+                 axis=1)
         else:
             print('\n[Warning] {} as {} ID returned no association.'.format(analysisResult[queryType]['queryTerm'], queryType))
 
@@ -145,7 +145,7 @@ def main():
             print('\tThe maximum of the association_score.overall values: {}'.format(analysisResult[queryType]['score_max']))
             print('\tThe minimum of the association_score.overall values: {}'.format(analysisResult[queryType]['score_min']))
             print('\tThe average of the association_score.overall values: {}'.format(analysisResult[queryType]['score_mean']))
-            print('\tThe standard error of the association_score.overall values: {}'.format(analysisResult[queryType]['score_std']))         
+            print('\tThe standard error of the association_score.overall values: {}'.format(analysisResult[queryType]['score_std']))
         else:
             print('\n\n[Warning] {} as {} ID returned no association.'.format(analysisResult[queryType]['queryTerm'], queryType))
 
