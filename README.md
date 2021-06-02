@@ -1,3 +1,5 @@
+## As the REST API of OpenTargets has been retired, this repository is no longer maintained.
+
 # OTAR parser
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ab0fc19c6def4bffb44ce6d89f75df85)](https://www.codacy.com/app/DSuveges/OTAR_response_parser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DSuveges/OTAR_response_parser&amp;utm_campaign=Badge_Grade)
